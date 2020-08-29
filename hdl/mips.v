@@ -1,64 +1,64 @@
 module mips(
-	clk,
-	reset
+    clk,
+    reset
     );
-	
-	input clk;
-	input reset;
+    
+    input clk;
+    input reset;
 
-	wire [15:0] w_Pc_Plus_2;
-	wire [15:0] w_Instruction;
-	wire [15:0] w_If_Pc_Plus_2;			    
-	wire [15:0] w_If_Instruction;		    
-	wire w_If_Sig_RegWrite;				    
-	wire [2:0] w_Mem_Write_Register;     	
-    wire [15:0] w_Mem_Write_Data;			
-	wire w_Mem_Sig_PCSrc;			 	   
-	wire [15:0] w_A; 
-    wire [15:0] w_B;	
-	wire [15:0] w_extended_Immediate;
-	wire w_Sig_RegDst;
-	wire w_Sig_ALUSrc;
-	wire w_Sig_MemtoReg;
-	wire w_Sig_RegWrite;
-	wire w_Sig_MemRead;
-	wire w_Sig_MemWrite;
-	wire w_Sig_Branch;
-	wire [1:0] w_Sigs_ALUOp;
-	wire [15:0] w_Id_Pc_Plus_2;
-	wire [15:0] w_Id_A; 
-    wire [15:0] w_Id_B;	
-	wire [15:0] w_Id_extended_Immediate;
-	wire w_Id_Sig_RegDst;
-	wire w_Id_Sig_ALUSrc;
-	wire w_Id_Sig_MemtoReg;
-	wire w_Id_Sig_RegWrite;
-	wire w_Id_Sig_MemRead;
-	wire w_Id_Sig_MemWrite;
-	wire w_Id_Sig_Branch;
-	wire [1:0] w_Id_Sigs_ALUOp;
-	wire [2:0] w_Id_Rt;
-	wire [2:0] w_Id_Rd;
-	wire w_ALU_Zero;
-	wire [15:0] w_ALU_Result;
-	wire w_Ex_Sig_MemRead;
-	wire w_Ex_Sig_MemWrite;
-	wire w_Ex_Sig_MemtoReg;
-	wire w_Ex_Sig_RegWrite;
-	wire w_Ex_Sig_Branch;
-	wire [15:0] w_Ex_Branch_Target;
-	wire [15:0] w_Ex_ALU_Result;
-	wire w_Ex_ALU_Zero;
-	wire [15:0] w_Ex_Write_Data;
-	wire [2:0] w_Ex_Write_Register;
-	wire [15:0] w_Branch_Target;
-	wire [2:0] w_Write_Register;
-	wire [15:0] w_Read_Data;
-	wire w_Mem_Sig_MemtoReg;
-	wire [15:0] w_Mem_ALU_Result;
-	wire [15:0] w_Mem_Read_Data;
-	wire w_Mem_Sig_RegWrite;
-	
+    wire [15:0] w_Pc_Plus_2;
+    wire [15:0] w_Instruction;
+    wire [15:0] w_If_Pc_Plus_2;             
+    wire [15:0] w_If_Instruction;           
+    wire w_If_Sig_RegWrite;                 
+    wire [2:0] w_Mem_Write_Register;        
+    wire [15:0] w_Mem_Write_Data;           
+    wire w_Mem_Sig_PCSrc;                  
+    wire [15:0] w_A; 
+    wire [15:0] w_B;    
+    wire [15:0] w_extended_Immediate;
+    wire w_Sig_RegDst;
+    wire w_Sig_ALUSrc;
+    wire w_Sig_MemtoReg;
+    wire w_Sig_RegWrite;
+    wire w_Sig_MemRead;
+    wire w_Sig_MemWrite;
+    wire w_Sig_Branch;
+    wire [1:0] w_Sigs_ALUOp;
+    wire [15:0] w_Id_Pc_Plus_2;
+    wire [15:0] w_Id_A; 
+    wire [15:0] w_Id_B; 
+    wire [15:0] w_Id_extended_Immediate;
+    wire w_Id_Sig_RegDst;
+    wire w_Id_Sig_ALUSrc;
+    wire w_Id_Sig_MemtoReg;
+    wire w_Id_Sig_RegWrite;
+    wire w_Id_Sig_MemRead;
+    wire w_Id_Sig_MemWrite;
+    wire w_Id_Sig_Branch;
+    wire [1:0] w_Id_Sigs_ALUOp;
+    wire [2:0] w_Id_Rt;
+    wire [2:0] w_Id_Rd;
+    wire w_ALU_Zero;
+    wire [15:0] w_ALU_Result;
+    wire w_Ex_Sig_MemRead;
+    wire w_Ex_Sig_MemWrite;
+    wire w_Ex_Sig_MemtoReg;
+    wire w_Ex_Sig_RegWrite;
+    wire w_Ex_Sig_Branch;
+    wire [15:0] w_Ex_Branch_Target;
+    wire [15:0] w_Ex_ALU_Result;
+    wire w_Ex_ALU_Zero;
+    wire [15:0] w_Ex_Write_Data;
+    wire [2:0] w_Ex_Write_Register;
+    wire [15:0] w_Branch_Target;
+    wire [2:0] w_Write_Register;
+    wire [15:0] w_Read_Data;
+    wire w_Mem_Sig_MemtoReg;
+    wire [15:0] w_Mem_ALU_Result;
+    wire [15:0] w_Mem_Read_Data;
+    wire w_Mem_Sig_RegWrite;
+    
     wire [15:0] w_Shift_Immediate = w_Id_extended_Immediate << 1;
     assign  w_Mem_Sig_PCSrc = w_Ex_Sig_Branch & w_Ex_ALU_Zero;
 

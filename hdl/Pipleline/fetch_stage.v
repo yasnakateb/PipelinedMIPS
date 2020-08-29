@@ -1,21 +1,21 @@
 module fetch_stage(
-	clk,
-	i_Sig_PCSrc,
-	i_Branch_Target,
-	o_Pc_Plus_2,
-	o_Instruction
+    clk,
+    i_Sig_PCSrc,
+    i_Branch_Target,
+    o_Pc_Plus_2,
+    o_Instruction
     );
-	
-	input clk;
-	input i_Sig_PCSrc;
-	input [15:0] i_Branch_Target;
-	output [15:0] o_Pc_Plus_2;
-	output [15:0] o_Instruction;
+    
+    input clk;
+    input i_Sig_PCSrc;
+    input [15:0] i_Branch_Target;
+    output [15:0] o_Pc_Plus_2;
+    output [15:0] o_Instruction;
 
-	wire [15:0] w_Instruction_Address;
-	wire [15:0] w_Next_Instruction_Address;
-	
-	assign o_Pc_Plus_2 = w_Instruction_Address + 2;
+    wire [15:0] w_Instruction_Address;
+    wire [15:0] w_Next_Instruction_Address;
+    
+    assign o_Pc_Plus_2 = w_Instruction_Address + 2;
 
     pc_mux Pc_Mux (
         .i_Sig_Select(i_Sig_PCSrc), 
